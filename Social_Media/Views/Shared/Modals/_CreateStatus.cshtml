@@ -1,0 +1,34 @@
+﻿<div class="hidden lg:p-20" id="create-status" uk-modal="">
+    <div class="uk-modal-dialog tt relative overflow-hidden mx-auto bg-white shadow-xl rounded-lg md\:w-\[520px\] w-full">
+        <div class=" text-center py-4 border-b mb-0">
+            <h2 class=" text-sm font-medium text-black">Create Status</h2>
+            <button type="button" class="button-icon absolute top-0 right-0 m-2.5 uk-modal-close">
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.293 5.293a1 1 0 0 1 1.414 0L12 10.586l5.293-5.293a1 1 0 1 1 1.414 1.414L13.414 12l5.293 5.293a1 1 0 0 1-1.414 1.414L12 13.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L10.586 12 5.293 6.707a1 1 0 0 1 0-1.414z" fill="#0D0D0D" /></svg>
+            </button>
+        </div>
+        <form>
+            <div class="space-y-5 mt-3 p-2">
+                <textarea class="w-full !text-black placeholder:!text-black !bg-white !border-transparent focus:!border-transparent focus:!ring_transparent !font-normal !text-xl" name="content" rows="2">
+                    this is place for your thoughts
+                </textarea>
+            </div>
+            <div class="flex items-center gap-2 text-sm py-2 px-4 font-medium flex-wrap">
+                <input id="imageUpload" type="file" class="hidden" name="uploadedContent" accept="image/png,image/jpeg" />
+                <div id="imagePreviewContainer" class="hidden">
+                    <img id="imagePreview" src="#" class="w-full h-auto rounded" />
+                </div>
+                <button type="button" id="imageUploadBtn" class="flex items-center gap-1.5 bg-sky-50 text-sky-600 rounded-full py-1 px-2 border-2 border-sky-100">
+                    <ion-icon name="image" class="text-base"></ion-icon> image
+                </button>
+
+            </div>
+            <div class="p-5 flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <button type="submit" class="button bg-blue-500 text-white py-2 px-12 text-[14px]">Share your thoughts</button>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
