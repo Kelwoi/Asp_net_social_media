@@ -7,20 +7,66 @@
       "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:views\\shared\\modals\\_createstatus.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\views\\shared\\modals\\_createstory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:views\\shared\\modals\\_createstory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD3CDB9A-5B61-441A-A238-C9B917765272}|..\\PimpleNet.data\\PimpleNet.Data.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\pimplenet.data\\appdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\viewmodels\\home\\postvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:viewmodels\\home\\postvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\social_media.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:social_media.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD3CDB9A-5B61-441A-A238-C9B917765272}|..\\PimpleNet.data\\PimpleNet.Data.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\pimplenet.data\\models\\post.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\views\\shared\\home\\_post.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:views\\shared\\home\\_post.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD3CDB9A-5B61-441A-A238-C9B917765272}|..\\PimpleNet.data\\PimpleNet.Data.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\pimplenet.data\\helpers\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD3CDB9A-5B61-441A-A238-C9B917765272}|..\\PimpleNet.data\\PimpleNet.Data.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\pimplenet.data\\models\\migrations\\20250917174743_user_added.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD3CDB9A-5B61-441A-A238-C9B917765272}|..\\PimpleNet.data\\PimpleNet.Data.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\pimplenet.data\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD3CDB9A-5B61-441A-A238-C9B917765272}|..\\PimpleNet.data\\PimpleNet.Data.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\pimplenet.data\\pimplenet.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\views\\shared\\sidebar\\_trends.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:views\\shared\\sidebar\\_trends.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\views\\shared\\sidebar\\_peopleyoumayknow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:views\\shared\\sidebar\\_peopleyoumayknow.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\views\\shared\\modals\\_createstory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:views\\shared\\modals\\_createstory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\views\\shared\\navigation\\_sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -37,6 +83,16 @@
     {
       "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD3CDB9A-5B61-441A-A238-C9B917765272}|..\\PimpleNet.data\\PimpleNet.Data.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\pimplenet.data\\models\\migrations\\20250917173715_testchange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\social_media\\migrations\\20250917172411_first.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DAB58E30-A0FC-45F1-BEB1-5E6412E8D455}|Social_Media.csproj|solutionrelative:migrations\\20250917172411_first.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD3CDB9A-5B61-441A-A238-C9B917765272}|..\\PimpleNet.data\\PimpleNet.Data.csproj|c:\\users\\vovka\\desktop\\asp_net_proj\\pimplenet.data\\models\\migrations\\20250918202108_add_us_post_rela.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,45 +102,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_CreateStatus.cshtml",
-              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Modals\\_CreateStatus.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\Modals\\_CreateStatus.cshtml",
-              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Modals\\_CreateStatus.cshtml",
-              "RelativeToolTip": "Views\\Shared\\Modals\\_CreateStatus.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-15T16:29:46.703Z",
+              "DocumentIndex": 5,
+              "Title": "PostVM.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\ViewModels\\Home\\PostVM.cs",
+              "RelativeDocumentMoniker": "ViewModels\\Home\\PostVM.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\ViewModels\\Home\\PostVM.cs",
+              "RelativeToolTip": "ViewModels\\Home\\PostVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-19T14:15:45.822Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_CreateStory.cshtml",
-              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Modals\\_CreateStory.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\Modals\\_CreateStory.cshtml",
-              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Modals\\_CreateStory.cshtml",
-              "RelativeToolTip": "Views\\Shared\\Modals\\_CreateStory.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABhAQAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-15T15:43:05.405Z",
+              "DocumentIndex": 12,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\User.cs",
+              "RelativeDocumentMoniker": "..\\PimpleNet.data\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\User.cs",
+              "RelativeToolTip": "..\\PimpleNet.data\\Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:41:13.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "20250917173715_testchange.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\Migrations\\20250917173715_testchange.cs",
+              "RelativeDocumentMoniker": "..\\PimpleNet.data\\Models\\Migrations\\20250917173715_testchange.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\Migrations\\20250917173715_testchange.cs",
+              "RelativeToolTip": "..\\PimpleNet.data\\Models\\Migrations\\20250917173715_testchange.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:37:15.511Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-15T14:16:24.565Z",
+              "Title": "AppDb.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\AppDb.cs",
+              "RelativeDocumentMoniker": "..\\PimpleNet.data\\AppDb.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\AppDb.cs",
+              "RelativeToolTip": "..\\PimpleNet.data\\AppDb.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:32:25.415Z",
               "EditorCaption": ""
             },
             {
@@ -95,27 +164,222 @@
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Controllers\\HomeController.cs",
               "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-15T14:22:20.542Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0AAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-15T14:16:24.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T14:21:48.504Z",
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T17:22:43.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_CreateStatus.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Modals\\_CreateStatus.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Modals\\_CreateStatus.cshtml",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Modals\\_CreateStatus.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Modals\\_CreateStatus.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-15T16:29:46.703Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
+              "Title": "_Post.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Home\\_Post.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Home\\_Post.cshtml",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Home\\_Post.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Home\\_Post.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAABsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-19T13:40:02.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Social_Media",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Social_Media.csproj",
+              "RelativeDocumentMoniker": "Social_Media.csproj",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Social_Media.csproj",
+              "RelativeToolTip": "Social_Media.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-19T14:15:10.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Post.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\Post.cs",
+              "RelativeDocumentMoniker": "..\\PimpleNet.data\\Models\\Post.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\Post.cs",
+              "RelativeToolTip": "..\\PimpleNet.data\\Models\\Post.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:32:29.851Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "20250918202108_add_us_post_rela.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\Migrations\\20250918202108_add_us_post_rela.cs",
+              "RelativeDocumentMoniker": "..\\PimpleNet.data\\Models\\Migrations\\20250918202108_add_us_post_rela.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\Migrations\\20250918202108_add_us_post_rela.cs",
+              "RelativeToolTip": "..\\PimpleNet.data\\Models\\Migrations\\20250918202108_add_us_post_rela.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T20:21:09.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PimpleNet.Data.csproj",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\PimpleNet.Data.csproj",
+              "RelativeDocumentMoniker": "..\\PimpleNet.data\\PimpleNet.Data.csproj",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\PimpleNet.Data.csproj",
+              "RelativeToolTip": "..\\PimpleNet.data\\PimpleNet.Data.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-09-18T20:23:03.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DbInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Helpers\\DbInitializer.cs",
+              "RelativeDocumentMoniker": "..\\PimpleNet.data\\Helpers\\DbInitializer.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Helpers\\DbInitializer.cs",
+              "RelativeToolTip": "..\\PimpleNet.data\\Helpers\\DbInitializer.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCwAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T20:23:55.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20250917174743_User_Added.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\Migrations\\20250917174743_User_Added.cs",
+              "RelativeDocumentMoniker": "..\\PimpleNet.data\\Models\\Migrations\\20250917174743_User_Added.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\PimpleNet.data\\Models\\Migrations\\20250917174743_User_Added.cs",
+              "RelativeToolTip": "..\\PimpleNet.data\\Models\\Migrations\\20250917174743_User_Added.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:47:43.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "20250917172411_First.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Migrations\\20250917172411_First.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250917172411_First.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Migrations\\20250917172411_First.cs",
+              "RelativeToolTip": "Migrations\\20250917172411_First.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T17:24:12.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-18T20:40:02.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "_CreateStory.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Modals\\_CreateStory.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Modals\\_CreateStory.cshtml",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Modals\\_CreateStory.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Modals\\_CreateStory.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAIBJwA0AAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-15T15:43:05.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_PeopleYouMayKnow.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Sidebar\\_PeopleYouMayKnow.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Sidebar\\_PeopleYouMayKnow.cshtml",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Sidebar\\_PeopleYouMayKnow.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Sidebar\\_PeopleYouMayKnow.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-16T20:12:21.365Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "_Trends.cshtml",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Sidebar\\_Trends.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\Sidebar\\_Trends.cshtml",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Sidebar\\_Trends.cshtml",
+              "RelativeToolTip": "Views\\Shared\\Sidebar\\_Trends.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-16T20:54:22.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAACzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-09-16T21:59:51.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
@@ -128,20 +392,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 18,
               "Title": "_Sidebar.cshtml",
               "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Navigation\\_Sidebar.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\Navigation\\_Sidebar.cshtml",
               "ToolTip": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Navigation\\_Sidebar.cshtml",
               "RelativeToolTip": "Views\\Shared\\Navigation\\_Sidebar.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAIBJwBsAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-09-12T16:58:18.947Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 20,
               "Title": "_TopBar.cshtml",
               "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\Navigation\\_TopBar.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\Navigation\\_TopBar.cshtml",
@@ -154,7 +418,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 19,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Vovka\\Desktop\\asp_net_proj\\Social_Media\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",

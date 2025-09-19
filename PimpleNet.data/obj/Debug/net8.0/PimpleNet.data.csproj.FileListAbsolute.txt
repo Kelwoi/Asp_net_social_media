@@ -1,0 +1,15 @@
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\bin\Debug\net8.0\PimpleNet.data.deps.json
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\bin\Debug\net8.0\PimpleNet.data.runtimeconfig.json
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\bin\Debug\net8.0\PimpleNet.data.dll
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\bin\Debug\net8.0\PimpleNet.data.pdb
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\PimpleNet.data.csproj.AssemblyReference.cache
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\PimpleNet.data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\PimpleNet.data.AssemblyInfoInputs.cache
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\PimpleNet.data.AssemblyInfo.cs
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\PimpleNet.data.csproj.CoreCompileInputs.cache
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\PimpleNet.data.sourcelink.json
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\PimpleNet.data.dll
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\refint\PimpleNet.data.dll
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\PimpleNet.data.pdb
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\PimpleNet.data.genruntimeconfig.cache
+C:\Users\Vovka\Desktop\asp_net_proj\PimpleNet.data\obj\Debug\net8.0\ref\PimpleNet.data.dll
