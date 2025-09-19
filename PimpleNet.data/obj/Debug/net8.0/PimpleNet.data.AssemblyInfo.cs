@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PimpleNet.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e4225b85e6ae8f56b8381fe936ab35db6eeb119")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+798bc532f72f1003641ec937933299e08b350653")]
 [assembly: System.Reflection.AssemblyProductAttribute("PimpleNet.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PimpleNet.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

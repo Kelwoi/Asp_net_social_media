@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PimpleNet.Data;
 
@@ -11,9 +12,11 @@ using PimpleNet.Data;
 namespace Social_Media.Migrations
 {
     [DbContext(typeof(AppDb))]
-    partial class AppDbModelSnapshot : ModelSnapshot
+    [Migration("20250919152509_Add_like")]
+    partial class Add_like
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,24 @@ namespace Social_Media.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("PimpleNet.Data.Models.Like", b =>
+                {
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("PostId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Likes");
+                });
 
             modelBuilder.Entity("PimpleNet.Data.Models.Post", b =>
                 {
@@ -76,6 +97,25 @@ namespace Social_Media.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("PimpleNet.Data.Models.Like", b =>
+                {
+                    b.HasOne("PimpleNet.Data.Models.Post", "Post")
+                        .WithMany("Likes")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PimpleNet.Data.Models.User", "User")
+                        .WithMany("Likes")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Post");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("PimpleNet.Data.Models.Post", b =>
                 {
                     b.HasOne("PimpleNet.Data.Models.User", "User")
@@ -87,8 +127,15 @@ namespace Social_Media.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("PimpleNet.Data.Models.Post", b =>
+                {
+                    b.Navigation("Likes");
+                });
+
             modelBuilder.Entity("PimpleNet.Data.Models.User", b =>
                 {
+                    b.Navigation("Likes");
+
                     b.Navigation("Posts");
                 });
 #pragma warning restore 612, 618

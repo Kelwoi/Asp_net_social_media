@@ -9,6 +9,7 @@ wwwroot\images\icons\video.png
 wwwroot\images\logo.png
 wwwroot\images\noteico.png
 wwwroot\images\placeholders\Screenshot 2025-08-24 223610.png
+wwwroot\images\uploaded\b6ae5339-41c2-4bda-9dc0-e487e75f6729.png
 wwwroot\js\script.js
 wwwroot\js\simplebar.js
 wwwroot\js\site.js

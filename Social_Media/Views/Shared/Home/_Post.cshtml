@@ -12,6 +12,9 @@
         _ => "Just now"
     };
 
+    bool isFavorited = Model.Favorites.Any(n => n.UserId == 1);
+    bool isLiked = Model.Likes.Any(n => n.UserId == 1);
+
 }
 
 
@@ -76,37 +79,113 @@
         <div class="sm:p-4 p-2.5 flex items-center gap-4 text-xs font-semibold">
 
             <div class="flex items-center gap-2.5">
-                <a class="button-icon text-red-500 bg-red-100">
-                    <ion-icon class="text-lg" name="heart"></ion-icon>
-                </a>
-                <a href="#">24</a>
+                <form asp-controller="Home" asp-action="ToggleLike" method="post">
+
+                <input type="hidden" name="postId" value="@Model.Id"/>
+                <button type="submit" class="button-icon @(isLiked ? "text-red-500 bg-red-100" : "")">
+                    <ion-icon class="text-lg" name="@(isLiked ? "heart" : "heart-outline")"></ion-icon>
+                </button>
+                </form>
+
+                <a href="#">@Model.Likes.Count</a>
 
             </div>
             <div class="flex items-center gap-3">
                 <a class="button-icon">
                     <ion-icon class="text-lg" name="chatbubble-ellipses-outline"></ion-icon>
                 </a>
-                <a href="#">12</a>
+                <a href="#">@Model.Comments.Count</a>
             </div>
 
             <div class="ml-auto"></div>
 
-            <div>
-                <a class="button-icon ml-auto">
-                    <ion-icon class="text-lg" name="bookmark-outline"></ion-icon>
-                </a>
+        <div class="flex items-center gap-3">
+            <form asp-controller="Home" asp-action="ToggleFavorite">
+                <input type="hidden" name="postId" value="@Model.Id" />
+                <button type="submit" class="button-icon ml-auto @(isFavorited ? "text-orange-500 bt-orange-100" : "")">
+                    <ion-icon class="text-lg" name="@(isFavorited ? "bookmark" : "bookmark-outline")"></ion-icon>
+                </button>
+            </form>
+            @if(Model.Favorites.Count > 0)
+            {
+                <a href="#">@Model.Favorites.Count</a>
+            }
+                    
             </div>
         </div>
         @*comm*@
-        <div>
+    <div class="sm:px-4 sm:py-3 p-2.5 border-t border-gray-100 text-black">
 
-            <div class="sm:px-4 sm:py-3 p-2.5 border-t border-gray-100 flex items-center gap-1">
-                <img src="~/images/avatar/defavar.png" class="w-6 h-6 rounded-full" />
-                <div class="flex-1 relative overflow-hidden h-10 text-black">
-                    <textarea placeholder="Add Comment..." rows="1" class="text-black w-full resize-none !bg-transparent px-4 py-2 focus:!border-transparent focus:!ring-transparent"></textarea>
-                </div>
+                    <div class="p-2 border-t border-gray-100 font-normal space-y-3 relative">
+                        @foreach(var comment in Model.Comments.OrderByDescending(n => n.CreatedAt).Take(3))
+                        {
+
+
+                            TimeSpan commenttimeSpanSincePost = DateTime.UtcNow.Subtract(comment.CreatedAt);
+
+                            string commentdisplayTime = commenttimeSpanSincePost switch
+                            {
+                                var t when t.TotalDays > 365 => $"{(int)(t.TotalDays / 365)}y ago",
+                                var t when t.TotalDays > 1 => $"{(int)t.TotalDays}d ago",
+                                var t when t.TotalHours > 1 => $"{(int)t.TotalHours}h ago",
+                                var t when t.TotalMinutes > 1 => $"{(int)t.TotalMinutes}m ago",
+                                _ => "Just now"
+                            };
+
+                            <div class="flex items-start gap-3 relative">
+                                <a>
+                                    <img src="@(comment.User.profilePicture ?? "~/images/avatar/defavar.png")" class="w-6 h-6 mt-1 rounded-full" />
+
+                                
+                                
+                                </a>
+                                <div class="flex-1">
+                                    <div class="flex justify-content-between">
+                                        <a class="text-black font-medium inline-block flex-grow">
+                                            @comment.User.Fullname
+                                        </a>
+                                        <small>@commentdisplayTime</small>
+
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <p class="mt-0.5">
+                                            @comment.Content
+                                        </p>
+                                    </div>
+                                    <form asp-controller="Home" asp-action="RemoveComment">
+                                        <input type="hidden" name="commentId" value="@comment.Id" />
+                                        <button type="submit" class="text-xs ml-2 text-red-500" title="Remove Post Comment">
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        </button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        }
+                        @if(Model.Comments.Count >= 3)
+                        {
+                            <div class="p-1.5">
+                                <a>
+                                    Show all comments
+                                </a>
+                            </div>
+                        }
+
+                    </div>
+        <form asp-controller="Home" asp-action="AddComment" class="flex items-center gap-2 w-full">
+
+            <img src="~/images/avatar/defavar.png" class="w-6 h-6 rounded-full" />
+
+            <input type="hidden" name="postId" value="@Model.Id" />
+
+            <div class="flex-1">
+                <textarea name="content" placeholder="Add Comment..." rows="1"class="!text-black placeholder:!text-gray-400 w-full resize-none bg-white px-4 py-2 rounded-md border border-gray-200 focus:border-blue-400 focus:ring-1 focus:ring-blue-400"></textarea>
             </div>
-            <button class="text-sm rounded-full py-1.5 px-3.5 bg-secondary">Comment</button>
-        </div>
 
+
+            <button type="submit" class="text-sm rounded-full py-1.5 px-3.5 bg-black text-white shrink-0">
+                Comment
+            </button>
+        </form>
     </div>
+</div>

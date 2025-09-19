@@ -9,17 +9,19 @@
             </button>
         </div>
 
-        <form asp-controller="Home" asp-action="CreatePost">
+        <form asp-controller="Home" asp-action="CreatePost" enctype="multipart/form-data">
             <div class="space-y-5 mt-3 p-2">
                 <textarea class="w-full !text-black placeholder:!text-black !bg-white !border-transparent focus:!border-transparent focus:!ring_transparent !font-normal !text-xl" name="content" asp-for="@Model.Content" rows="2">
                     this is place for your thoughts
                 </textarea>
             </div>
             <div class="flex items-center gap-2 text-sm py-2 px-4 font-medium flex-wrap">
-                <input id="imageUpload" type="file" class="hidden" name="uploadedContent" accept="image/png,image/jpeg" />
+                <input id="imageUpload" type="file" class="hidden" name="image" accept="image/png,image/jpeg" />
+
                 <div id="imagePreviewContainer" class="hidden">
                     <img id="imagePreview" src="#" class="w-full h-auto rounded" />
                 </div>
+
                 <button type="button" id="imageUploadBtn" class="flex items-center gap-1.5 bg-sky-50 text-sky-600 rounded-full py-1 px-2 border-2 border-sky-100">
                     <ion-icon name="image" class="text-base"></ion-icon> image
                 </button>
@@ -35,3 +37,32 @@
         </form>
     </div>
 </div>
+<script>
+    document.getElementById('imageUploadBtn').addEventListener('click', () => {
+        document.getElementById('imageUpload').click();
+    });
+
+    document.getElementById('imageUpload').addEventListener('change', (event) => {
+        const file = event.target.files[0];
+        const imagePreview = document.getElementById('imagePreview');
+        const imagePreviewContainer = document.getElementById('imagePreviewContainer');
+
+        if(file)
+        {
+            const reader = new FileReader();
+            imagePreviewContainer.classList.remove('hidden');
+            reader.onload = (e) => 
+            {
+                imagePreview.src = e.target.result;
+                
+            }
+            reader.readAsDataURL(file);
+        } 
+        else 
+        {
+            imagePreviewContainer.classList.add('hidden');
+            
+        };
+    });
+</script>
+              

@@ -14,6 +14,8 @@ namespace PimpleNet.Data.Models
 
         public int NrOfReports { get; set; }
 
+        public bool IsPrivate { get; set; }
+
         public DateTime CreatedAt { get; set; }
 
         public DateTime UpdatedAt { get; set; }
@@ -23,6 +25,12 @@ namespace PimpleNet.Data.Models
 
         // Navigation property
         public User User { get; set; }
+
+        public ICollection<Like> Likes { get; set; } = new List<Like>();
+
+        public ICollection<Comment> Comments { get; set; } = new List<Comment>();
+
+        public ICollection<Favorite> Favorites { get; set; } = new List<Favorite>();
 
 
     }
