@@ -8,7 +8,9 @@
         <a><h4 class="side-list-title">@Model.Fullname</h4></a>
         <div class="side-list-info">5 followers</div>
     </div>
-    <form>
+    <form asp-controller="Home" asp-action="ToggleFriend">
+
+        <input type="hidden" name="FriendId" value="@Model.Id" />
         <button type="submit" class="button bg-primary-soft text-primary">Follow</button>
     </form>
 </div>

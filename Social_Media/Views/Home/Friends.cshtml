@@ -1,0 +1,27 @@
+﻿@model List<Friendship>
+
+<main id="side__main" class="2xl:ml-[--w-side] xl:ml-[--w-side-sm] p-2.5 h-[calc(100vh-var(--m-top))] mt-[--m-top]">
+    <div class="lg:flex 2xl:gap-16 gap-12 max-w-[1065px] text-black mx-auto" id="js-oversized">
+        <div class="max-w-[680px] mx-auto">
+            <div class="mb-8">
+                <h3 class="font-extrabold text-2xl text-black">Friends</h3>
+            </div>
+
+            @if (Model.Count == 0)
+            {
+                <div class="bg-white rounded-xl shadow-sm md:p-4 p-2 space-y-4 text-sm text-black font-medium border1" style="width: 580px;">
+                    There's no friends... why?
+                </div>
+            }
+            else
+            {
+                @foreach (var fav in Model)
+                {
+                    <div class="post-item transition-opacity duration-500">
+                        <partial name="Home/_Friends" model="fav" />
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</main>

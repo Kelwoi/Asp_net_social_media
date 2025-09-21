@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PimpleNet.Data;
 
@@ -11,9 +12,11 @@ using PimpleNet.Data;
 namespace Social_Media.Migrations
 {
     [DbContext(typeof(AppDb))]
-    partial class AppDbModelSnapshot : ModelSnapshot
+    [Migration("20250921223718_friend")]
+    partial class friend
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -94,7 +97,7 @@ namespace Social_Media.Migrations
                     b.HasIndex("UserId", "FriendId")
                         .IsUnique();
 
-                    b.ToTable("Friendships");
+                    b.ToTable("Friendship");
                 });
 
             modelBuilder.Entity("PimpleNet.Data.Models.Like", b =>

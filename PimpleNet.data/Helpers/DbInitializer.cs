@@ -1,4 +1,5 @@
-﻿using PimpleNet.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using PimpleNet.Data;
 using PimpleNet.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,7 @@ namespace PimpleNet.Data.Helpers
                 await appDbContext.Posts.AddRangeAsync(newPostWOPicture, newPWPicture);
                 await appDbContext.SaveChangesAsync();
             }
+
 
         }
     }

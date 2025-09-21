@@ -17,6 +17,7 @@ namespace PimpleNet.Data
         public DbSet<Favorite> Favorites { get; set; }
 
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Friendship> Friendships { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -69,6 +70,18 @@ namespace PimpleNet.Data
                 .WithMany(u => u.Favorites)
                 .HasForeignKey(f => f.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Friendship>(entity =>
+            {
+
+                entity.HasOne(f => f.User)
+                      .WithMany(u => u.Friendships)
+                      .HasForeignKey(f => f.UserId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+
+                entity.HasIndex(f => new { f.UserId, f.FriendId }).IsUnique();
+            });
 
 
             base.OnModelCreating(modelBuilder);

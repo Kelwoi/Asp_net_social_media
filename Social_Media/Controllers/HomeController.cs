@@ -13,15 +13,15 @@ namespace Social_Media.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly AppDb _context;
-        
+
         public HomeController(ILogger<HomeController> logger, AppDb context)
         {
             _logger = logger;
             _context = context;
         }
 
-        public async Task<IActionResult> FavoritesL() 
-        {             
+        public async Task<IActionResult> FavoritesL()
+        {
             var FavoritesList = await _context.Favorites
                 .Include(f => f.Post)
                     .ThenInclude(p => p.User)
@@ -36,6 +36,14 @@ namespace Social_Media.Controllers
                 .OrderByDescending(f => f.Post.CreatedAt)
                 .ToListAsync();
             return View(FavoritesList);
+        }
+        public async Task<IActionResult> Friends()
+        {
+            var FriendsList = await _context.Friendships
+                .Include(f => f.Friend)
+                .Where(f => f.UserId == 1)
+                .ToListAsync();
+            return View(FriendsList);
         }
 
         public async Task<IActionResult> Index()
@@ -70,7 +78,7 @@ namespace Social_Media.Controllers
                 UserId = loggedInUser
             };
 
-            if(post.Image != null && post.Image.Length > 0)
+            if (post.Image != null && post.Image.Length > 0)
             {
                 string RootFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
                 if (post.Image.ContentType.Contains("image"))
@@ -81,7 +89,7 @@ namespace Social_Media.Controllers
                     string fileName = Guid.NewGuid().ToString() + Path.GetExtension(post.Image.FileName);
                     string fullPath = Path.Combine(RootImagesFolder, fileName);
 
-                    using(var stream = new FileStream(fullPath, FileMode.Create))
+                    using (var stream = new FileStream(fullPath, FileMode.Create))
                     {
                         await post.Image.CopyToAsync(stream);
                     }
@@ -147,7 +155,7 @@ namespace Social_Media.Controllers
         public async Task<IActionResult> RemoveComment(RemoveCommentVM removeCommentVM)
         {
             var commentDb = await _context.Comments.FirstOrDefaultAsync(c => c.Id == removeCommentVM.CommentId);
-            if(commentDb != null)
+            if (commentDb != null)
             {
                 _context.Comments.Remove(commentDb);
                 await _context.SaveChangesAsync();
@@ -212,6 +220,31 @@ namespace Social_Media.Controllers
                 await _context.SaveChangesAsync();
             }
 
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost] 
+        public async Task <IActionResult> ToggleFriend(AddFriendVM addFriendVM)
+        {
+            int loggedInUserId = 1;
+            var friendship = await _context.Friendships
+                .Where(f => f.UserId == loggedInUserId && f.FriendId == addFriendVM.FriendId)
+                .FirstOrDefaultAsync();
+            if (friendship != null)
+            {
+                _context.Friendships.Remove(friendship);
+            }
+            else
+            {
+                    var newFriendship = new Friendship
+                    {
+                        UserId = loggedInUserId,
+                        FriendId = addFriendVM.FriendId
+                    };
+                    _context.Friendships.Add(newFriendship);
+                
+            }
+            await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
