@@ -32,7 +32,7 @@ namespace Social_Media.Controllers
                 .Include(f => f.Post)
                     .ThenInclude(p => p.Comments)
                         .ThenInclude(c => c.User)
-                .Where(f => f.UserId == 1) // Assuming logged-in user ID is 1
+                .Where(f => f.UserId == 1)
                 .OrderByDescending(f => f.Post.CreatedAt)
                 .ToListAsync();
             return View(FavoritesList);
@@ -48,6 +48,10 @@ namespace Social_Media.Controllers
                     .ThenInclude(c => c.User)
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
+            var allUsers = await _context.Users
+                .Where(u => u.Id != 1)
+                .ToListAsync();
+            ViewBag.allUsers = allUsers;
             return View(allPosts);
         }
 
@@ -92,18 +96,17 @@ namespace Social_Media.Controllers
 
         [HttpPost]
 
+        [HttpPost]
         public async Task<IActionResult> ToggleLike(PostLikeVM postLikeVM)
         {
-            int loggedInUserId = 1;
+            int loggedInUserId = 1; // тут в реалі має бути твій UserId
 
             var like = await _context.Likes
-                .Where(l => l.PostId == postLikeVM.PostId && l.UserId == loggedInUserId)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(l => l.PostId == postLikeVM.PostId && l.UserId == loggedInUserId);
 
             if (like != null)
             {
                 _context.Likes.Remove(like);
-                await _context.SaveChangesAsync();
             }
             else
             {
@@ -113,11 +116,16 @@ namespace Social_Media.Controllers
                     UserId = loggedInUserId
                 };
                 await _context.Likes.AddAsync(newLike);
-                await _context.SaveChangesAsync();
             }
 
-            return RedirectToAction("Index");
+            await _context.SaveChangesAsync();
+
+            var likesCount = await _context.Likes.CountAsync(l => l.PostId == postLikeVM.PostId);
+            var isLiked = await _context.Likes.AnyAsync(l => l.PostId == postLikeVM.PostId && l.UserId == loggedInUserId);
+
+            return Json(new { likesCount, isLiked });
         }
+
 
         [HttpPost]
         public async Task<IActionResult> AddComment(PostCommentVM commentVM)
@@ -162,21 +170,34 @@ namespace Social_Media.Controllers
             if (favorite != null)
             {
                 _context.Favorites.Remove(favorite);
-                await _context.SaveChangesAsync();
             }
             else
             {
-                var newFavorite = new Favorite()
+                bool alreadyExists = await _context.Favorites
+                    .AnyAsync(f => f.PostId == postFavoriteVM.PostId && f.UserId == loggedInUserId);
+
+                if (!alreadyExists)
                 {
-                    PostId = postFavoriteVM.PostId,
-                    UserId = loggedInUserId
-                };
-                await _context.Favorites.AddAsync(newFavorite);
-                await _context.SaveChangesAsync();
+                    var newFavorite = new Favorite
+                    {
+                        PostId = postFavoriteVM.PostId,
+                        UserId = loggedInUserId
+                    };
+                    _context.Favorites.Add(newFavorite);
+                }
+                ;
             }
 
-            return RedirectToAction("Index");
+            await _context.SaveChangesAsync();
+
+            var isFavorited = await _context.Favorites
+                .AnyAsync(l => l.PostId == postFavoriteVM.PostId && l.UserId == loggedInUserId);
+            var favoritesCount = await _context.Favorites
+                .CountAsync(l => l.PostId == postFavoriteVM.PostId);
+
+            return Json(new { isFavorited, favoritesCount });
         }
+
         public async Task<IActionResult> TogglePrivacy(PostVisibilityVM postVisibilityVM)
         {
             int loggedInUserId = 1;

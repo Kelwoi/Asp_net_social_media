@@ -1,0 +1,14 @@
+﻿@model User
+
+<div class="side-list-item">
+    <a>
+        <img src="@(Model.profilePicture ?? "~/images/avatar/defavar.png")" class="w-9 h-9 rounded-full" />
+    </a>
+    <div class="flex-1">
+        <a><h4 class="side-list-title">@Model.Fullname</h4></a>
+        <div class="side-list-info">5 followers</div>
+    </div>
+    <form>
+        <button type="submit" class="button bg-primary-soft text-primary">Follow</button>
+    </form>
+</div>

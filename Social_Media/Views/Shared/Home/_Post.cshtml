@@ -79,7 +79,7 @@
         <div class="sm:p-4 p-2.5 flex items-center gap-4 text-xs font-semibold">
 
             <div class="flex items-center gap-2.5">
-                <form asp-controller="Home" asp-action="ToggleLike" method="post">
+                <form class="like-form" asp-controller="Home" asp-action="ToggleLike" method="post">
 
                 <input type="hidden" name="postId" value="@Model.Id"/>
                 <button type="submit" class="button-icon @(isLiked ? "text-red-500 bg-red-100" : "")">
@@ -87,7 +87,7 @@
                 </button>
                 </form>
 
-                <a href="#">@Model.Likes.Count</a>
+                <a href="#" class="like-count">@Model.Likes.Count</a>
 
             </div>
             <div class="flex items-center gap-3">
@@ -100,7 +100,7 @@
             <div class="ml-auto"></div>
 
         <div class="flex items-center gap-3">
-            <form asp-controller="Home" asp-action="ToggleFavorite">
+            <form class="fav-form" asp-controller="Home" asp-action="ToggleFavorite" method="post">
                 <input type="hidden" name="postId" value="@Model.Id" />
                 <button type="submit" class="button-icon ml-auto @(isFavorited ? "text-orange-500 bt-orange-100" : "")">
                     <ion-icon class="text-lg" name="@(isFavorited ? "bookmark" : "bookmark-outline")"></ion-icon>
@@ -108,7 +108,7 @@
             </form>
             @if(Model.Favorites.Count > 0)
             {
-                <a href="#">@Model.Favorites.Count</a>
+                <a href="#" class="favor-count">@Model.Favorites.Count</a>
             }
                     
             </div>
@@ -189,3 +189,65 @@
         </form>
     </div>
 </div>
+
+<script>
+    document.querySelectorAll(".like-form").forEach(form => {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: "POST",
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                
+                const btn = this.querySelector("button ion-icon");
+                const count = this.parentElement.querySelector(".like-count");
+
+                
+                btn.setAttribute("name", data.isLiked ? "heart" : "heart-outline");
+
+                
+                count.textContent = data.likesCount;
+            });
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll(".fav-form").forEach(form => {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch(this.action, {
+                method: "POST",
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                const btn = this.querySelector("button ion-icon");
+                const count = this.parentElement.querySelector(".favor-count");
+
+
+                btn.setAttribute("name", data.isFavorited ? "bookmark" : "bookmark-outline");
+
+
+                if (count) {
+                    count.textContent = data.favoritesCount;
+                } else if (data.favoritesCount > 0) {
+
+                    const newCount = document.createElement("a");
+                    newCount.href = "#";
+                    newCount.classList.add("favor-count");
+                    newCount.textContent = data.favoritesCount;
+                    this.parentElement.appendChild(newCount);
+                }
+            });
+        });
+    });
+</script>
+

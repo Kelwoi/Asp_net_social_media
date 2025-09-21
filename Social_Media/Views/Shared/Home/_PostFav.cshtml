@@ -14,13 +14,12 @@
 
     bool isFavorited = Model.Post.Favorites.Any(n => n.UserId == 1);
     bool isLiked = Model.Post.Likes.Any(n => n.UserId == 1);
-
 }
 
+<div class="post-item bg-white rounded-xl shadow-sm text-sm font-medium border1 transition-opacity duration-500"
+     data-post-id="@Model.Post.Id">
 
-<div class="bg-white rounded-xl shadow-sm text-sm font-medium border1">
-
-    @*head*@
+    <!-- head -->
     <div class="flex gap-3 p-sm-4 p-2.5 text-sm font-medium">
         <a>
             <img src="@(Model.User.profilePicture ?? "~/images/avatar/defavar.png")" class="w-9 h-9 rounded-full" />
@@ -35,61 +34,38 @@
             <button type="button" class="button-icon w-8 h-8">
                 <ion-icon class="text-xl text-black" name="ellipsis-horizontal"></ion-icon>
             </button>
-
-            <div class="w-[245px] bg-white text-black" uk-dropdown="pos: bottom-right; animation: uk-animation-scale-up uk-transform-origin-top-right; animate-out: true; mode: click">
-                <form>
-                    <button type="submit" class="hover:bg-red-50 icon-link">
-                        <ion-icon class="text-xl shrink-0" name="flag-outline"></ion-icon>Report
-                    </button>
-                </form>
-                <hr />
-                <form>
-                    <button type="submit" class="hover:bg-red-50 icon-link">
-                        <ion-icon class="text-xl shrink-0" name="lock-closed-outline"></ion-icon> Make private
-                    </button>
-                </form>
-                <hr />
-                <form>
-                    <button type="submit" class="hover:bg-red-50 icon-link">
-                        <ion-icon class="text-xl shrink-0" name="trash-bin-outline"></ion-icon>delete post
-                    </button>
-                </form>
-            </div>
-
         </div>
     </div>
-    @*cont*@
+
+    <!-- content -->
     <a>
         <div class="sm:px-4 p-2.5 pt-0 w-full">
-            <p class="font-normal">
-                @Model.Post.PostContent
-            </p>
+            <p class="font-normal">@Model.Post.PostContent</p>
         </div>
     </a>
     @if (!string.IsNullOrEmpty(Model.Post.ImageUrl))
     {
         <a>
             <div class="relative w-full lg:h-96 h-full sm:px-4">
-                <img src="@Model.Post.ImageUrl" class="sm\:rounded-lg w-full h-full object-cover" />
+                <img src="@Model.Post.ImageUrl" class="sm:rounded-lg w-full h-full object-cover" />
             </div>
         </a>
     }
 
-    @*icon*@
+    <!-- actions -->
     <div class="sm:p-4 p-2.5 flex items-center gap-4 text-xs font-semibold">
-
+        <!-- like -->
         <div class="flex items-center gap-2.5">
-            <form asp-controller="Home" asp-action="ToggleLike" method="post">
-
+            <form class="like-form" asp-controller="Home" asp-action="ToggleLike" method="post">
                 <input type="hidden" name="postId" value="@Model.Post.Id" />
                 <button type="submit" class="button-icon @(isLiked ? "text-red-500 bg-red-100" : "")">
                     <ion-icon class="text-lg" name="@(isLiked ? "heart" : "heart-outline")"></ion-icon>
                 </button>
             </form>
-
-            <a href="#">@Model.Post.Likes.Count</a>
-
+            <a href="#" class="like-count">@Model.Post.Likes.Count</a>
         </div>
+
+        <!-- comments -->
         <div class="flex items-center gap-3">
             <a class="button-icon">
                 <ion-icon class="text-lg" name="chatbubble-ellipses-outline"></ion-icon>
@@ -99,8 +75,9 @@
 
         <div class="ml-auto"></div>
 
+        <!-- favorites -->
         <div class="flex items-center gap-3">
-            <form asp-controller="Home" asp-action="ToggleFavorite">
+            <form class="fav-form" asp-controller="Home" asp-action="ToggleFavorite" method="post">
                 <input type="hidden" name="postId" value="@Model.Post.Id" />
                 <button type="submit" class="button-icon ml-auto @(isFavorited ? "text-orange-500 bt-orange-100" : "")">
                     <ion-icon class="text-lg" name="@(isFavorited ? "bookmark" : "bookmark-outline")"></ion-icon>
@@ -108,19 +85,16 @@
             </form>
             @if (Model.Post.Favorites.Count > 0)
             {
-                <a href="#">@Model.Post.Favorites.Count</a>
+                <a href="#" class="favor-count">@Model.Post.Favorites.Count</a>
             }
-
         </div>
     </div>
-    @*comm*@
-    <div class="sm:px-4 sm:py-3 p-2.5 border-t border-gray-100 text-black">
 
+    <!-- comments -->
+    <div class="sm:px-4 sm:py-3 p-2.5 border-t border-gray-100 text-black">
         <div class="p-2 border-t border-gray-100 font-normal space-y-3 relative">
             @foreach (var comment in Model.Post.Comments.OrderByDescending(n => n.CreatedAt).Take(3))
             {
-
-
                 TimeSpan commenttimeSpanSincePost = DateTime.UtcNow.Subtract(comment.CreatedAt);
 
                 string commentdisplayTime = commenttimeSpanSincePost switch
@@ -135,57 +109,76 @@
                 <div class="flex items-start gap-3 relative">
                     <a>
                         <img src="@(comment.User.profilePicture ?? "~/images/avatar/defavar.png")" class="w-6 h-6 mt-1 rounded-full" />
-
-
-
                     </a>
                     <div class="flex-1">
                         <div class="flex justify-content-between">
-                            <a class="text-black font-medium inline-block flex-grow">
-                                @comment.User.Fullname
-                            </a>
+                            <a class="text-black font-medium inline-block flex-grow">@comment.User.Fullname</a>
                             <small>@commentdisplayTime</small>
-
                         </div>
                         <div class="flex items-center justify-between">
-                            <p class="mt-0.5">
-                                @comment.Content
-                            </p>
+                            <p class="mt-0.5">@comment.Content</p>
                         </div>
-                        <form asp-controller="Home" asp-action="RemoveComment">
-                            <input type="hidden" name="commentId" value="@comment.Id" />
-                            <button type="submit" class="text-xs ml-2 text-red-500" title="Remove Post Comment">
-                                <ion-icon name="trash-outline"></ion-icon>
-                            </button>
-                        </form>
-
                     </div>
                 </div>
             }
             @if (Model.Post.Comments.Count >= 3)
             {
                 <div class="p-1.5">
-                    <a>
-                        Show all comments
-                    </a>
+                    <a>Show all comments</a>
                 </div>
             }
-
         </div>
         <form asp-controller="Home" asp-action="AddComment" class="flex items-center gap-2 w-full">
-
             <img src="~/images/avatar/defavar.png" class="w-6 h-6 rounded-full" />
-
             <input type="hidden" name="postId" value="@Model.Post.Id" />
-
             <div class="flex-1">
-                <textarea name="content" placeholder="Add Comment..." rows="1" class="!text-black placeholder:!text-gray-400 w-full resize-none bg-white px-4 py-2 rounded-md border border-gray-200 focus:border-blue-400 focus:ring-1 focus:ring-blue-400"></textarea>
+                <textarea name="content" placeholder="Add Comment..." rows="1"
+                          class="!text-black placeholder:!text-gray-400 w-full resize-none bg-white px-4 py-2 rounded-md border border-gray-200 focus:border-blue-400 focus:ring-1 focus:ring-blue-400"></textarea>
             </div>
-
-
-            <button type="submit" class="text-sm rounded-full py-1.5 px-3.5 bg-black text-white shrink-0">
-                Comment
-            </button>
+            <button type="submit" class="text-sm rounded-full py-1.5 px-3.5 bg-black text-white shrink-0">Comment</button>
         </form>
     </div>
 </div>
+<script>
+    document.querySelectorAll(".fav-form").forEach(form => {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            fetch(this.action, { method: "POST", body: formData })
+            .then(res => res.json())
+            .then(data => {
+                const btn = this.querySelector("button ion-icon");
+                const count = this.parentElement.querySelector(".favor-count");
+
+                btn.setAttribute("name", data.isFavorited ? "bookmark" : "bookmark-outline");
+                if (count) count.textContent = data.favoritesCount;
+
+                if (!data.isFavorited) {
+                    const postItem = this.closest(".post-item");
+                    if (postItem) {
+                        postItem.style.opacity = "0";
+                        setTimeout(() => postItem.remove(), 500);
+                    }
+                }
+            });
+        });
+    });
+
+    document.querySelectorAll(".like-form").forEach(form => {
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            fetch(this.action, { method: "POST", body: formData })
+            .then(res => res.json())
+            .then(data => {
+                const btn = this.querySelector("button ion-icon");
+                const count = this.parentElement.querySelector(".like-count");
+
+                btn.setAttribute("name", data.isLiked ? "heart" : "heart-outline");
+                if (count) count.textContent = data.likesCount;
+            });
+        });
+    });
+</script>
