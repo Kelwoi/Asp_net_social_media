@@ -13,11 +13,29 @@ namespace Social_Media.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly AppDb _context;
-
+        
         public HomeController(ILogger<HomeController> logger, AppDb context)
         {
             _logger = logger;
             _context = context;
+        }
+
+        public async Task<IActionResult> FavoritesL() 
+        {             
+            var FavoritesList = await _context.Favorites
+                .Include(f => f.Post)
+                    .ThenInclude(p => p.User)
+                .Include(f => f.Post)
+                    .ThenInclude(p => p.Likes)
+                .Include(f => f.Post)
+                    .ThenInclude(p => p.Favorites)
+                .Include(f => f.Post)
+                    .ThenInclude(p => p.Comments)
+                        .ThenInclude(c => c.User)
+                .Where(f => f.UserId == 1) // Assuming logged-in user ID is 1
+                .OrderByDescending(f => f.Post.CreatedAt)
+                .ToListAsync();
+            return View(FavoritesList);
         }
 
         public async Task<IActionResult> Index()
