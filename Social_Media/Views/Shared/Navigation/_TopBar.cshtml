@@ -1,6 +1,6 @@
 ﻿@model User
 
-<header class="z-[100] h-[--m-top] fixed top-0 left-0 w-full flex items-center bg-white/80 sky-50 backdrop-blur-xl border-b border-slate-200">
+<header class=" bg-slate-50 backdrop-blur z-[100] h-[--m-top] fixed top-0 left-0 w-full flex items-center bg-white/80 sky-50 backdrop-blur-xl border-b border-slate-200">
     <div class="2xl:w-[--w-side] lg:w-[--w-side-sm]">
         <div class="flex items-center gap-1">
             <button uk-toggle="target: #site__sidebar ; cls :!-translate-x-0" class="flex items-center justify-center w-8 h-8 text-xl rounded-full hover:bg-gray-100 xl:hidden group">
@@ -69,12 +69,13 @@
                     </a>
                     <hr />
                     <nav>
-                        <a>
-                            <div class="flex items-center gap-2.5 hover:bg-secondery p-2 px-2.5 rounded-md">
+                        <form asp-controller="Account" asp-action="Profile">
+                            <input type="hidden" name="Id" value="@Model.Id" />
+                            <button type="submit" class="flex items-center gap-2.5 hover:bg-secondery p-2 px-2.5 rounded-md">
                                 <ion-icon name="settings-outline" class="text-lg"></ion-icon>Your account
-                            </div>
+                            </button>
 
-                        </a>
+                        </form>
                         <hr />
                         <form asp-controller="Account" asp-action="Logout">
                             <button type="submit" class="flex-1 items-center gap-2.5 hover:bg-secondery p-2 px-2.5 rounded-md">

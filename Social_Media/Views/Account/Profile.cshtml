@@ -1,0 +1,64 @@
+﻿@model PimpleNet.Data.Models.User
+@{
+    Layout = "_LayoutAuthenticated";
+}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.Fullname - Профіль</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 min-h-screen flex justify-center p-6 text-white">
+
+    <div class="w-full max-w-2xl bg-gray-800 rounded-2xl shadow-xl p-6">
+        <!-- Верхній блок -->
+        <div class="flex items-center gap-4 border-b border-gray-700 pb-4 mb-4">
+            <div class="w-16 h-16 flex items-center justify-center bg-gray-700 rounded-full overflow-hidden">
+                @if (!string.IsNullOrEmpty(Model.profilePicture))
+                {
+                    <img src="@Model.profilePicture" alt="avatar" class="w-full h-full object-cover" />
+                }
+                else
+                {
+                    <span class="text-3xl">👤</span>
+                }
+            </div>
+            <div>
+                <h2 class="text-xl font-bold">@Model.Fullname</h2>
+                <p class="text-gray-400">Друзів: @Model.Friendships.Count</p>
+                <p class="text-gray-500 text-sm">@Model.Email</p>
+            </div>
+        </div>
+
+        <!-- Пости -->
+        <div>
+            <h3 class="text-lg font-semibold mb-3">Пости користувача</h3>
+
+            @if (Model.Posts.Any())
+            {
+                <div class="space-y-3">
+                    @foreach (var post in Model.Posts.OrderByDescending(p => p.CreatedAt))
+                    {
+                        <div class="p-4 bg-gray-700 rounded-xl shadow">
+                            <p>@post.PostContent</p>
+                            <p class="text-xs text-gray-400 mt-1">
+                                Опубліковано: @post.CreatedAt.ToString("dd.MM.yyyy HH:mm")
+                            </p>
+                            @if (!string.IsNullOrEmpty(post.ImageUrl))
+                            {
+                                <img src="@post.ImageUrl" alt="post image" class="mt-2 rounded-lg max-h-60" />
+                            }
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p class="text-gray-400">У цього користувача ще немає постів.</p>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

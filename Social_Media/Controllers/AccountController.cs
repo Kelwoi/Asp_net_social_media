@@ -5,6 +5,7 @@ namespace Social_Media.Controllers
     using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Authentication.Cookies;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
     using PimpleNet.Data;
     using PimpleNet.Data.Models;
     using System.Linq;
@@ -89,6 +90,18 @@ namespace Social_Media.Controllers
             {
                 HttpContext.Session.Clear();
                 return RedirectToAction("RegisterLogin");
+            }
+
+            public async Task<IActionResult> Profile(int id)
+            {
+                var user = await _context.Users
+                    .Include(u => u.Posts)
+                    .Include(u => u.Friendships)
+                    .FirstOrDefaultAsync(u => u.Id == id);
+
+                if (user == null) return NotFound();
+
+                return View(user);
             }
         }
     }
