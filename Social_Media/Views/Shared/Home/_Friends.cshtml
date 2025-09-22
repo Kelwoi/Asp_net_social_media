@@ -1,15 +1,21 @@
-﻿@model Friendship
+﻿@inject PimpleNet.Data.AppDb _context
+@model Friendship
 
+@{
+    int? userId = Context.Session.GetInt32("UserId");
+
+    var friend = (Model.UserId == userId) ? Model.Friend : Model.User;
+}
 <div class="side-list-item">
     <a>
-        <img src="@(Model.Friend.profilePicture ?? "~/images/avatar/defavar.png")" class="w-9 h-9 rounded-full" />
+        <img src="@(friend.profilePicture ?? "~/images/avatar/defavar.png")" class="w-9 h-9 rounded-full" />
     </a>
     <div class="flex-1">
-        <a><h4 class="side-list-title">@Model.Friend.Fullname</h4></a>
-        <div class="side-list-info">@Model.Friend.Friendships.Count</div>
+        <a><h4 class="side-list-title">@friend.Fullname</h4></a>
+        <div class="side-list-info">@friend.Friendships.Count</div>
     </div>
-    <form asp-controller="Home" asp-action="ToggleFriend">
-        <input type="hidden" name="FriendId" value="@Model.Friend.Id" />
+    <form asp-controller="Home" asp-action="ToggleFriend" method="post">
+        <input type="hidden" name="FriendId" value="@friend.Id" />
         <button type="submit" class="button bg-primary-soft text-primary">Unfriend</button>
     </form>
 </div>

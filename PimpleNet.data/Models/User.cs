@@ -10,7 +10,10 @@ namespace PimpleNet.Data.Models
     {
         public int Id { get; set; }
         public string Fullname { get; set; }
-        
+
+        public string password { get; set; }
+        public string Email { get; set; }
+
         public string? profilePicture { get; set; }
 
         //nav

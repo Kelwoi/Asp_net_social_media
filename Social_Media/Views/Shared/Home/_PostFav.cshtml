@@ -1,4 +1,5 @@
-﻿@model Favorite;
+﻿@using Social_Media.Controllers
+@model Favorite;
 
 @{
     TimeSpan timeSpanSincePost = DateTime.UtcNow.Subtract(Model.Post.CreatedAt);
@@ -12,8 +13,10 @@
         _ => "Just now"
     };
 
-    bool isFavorited = Model.Post.Favorites.Any(n => n.UserId == 1);
-    bool isLiked = Model.Post.Likes.Any(n => n.UserId == 1);
+    var loggedInUserId = ViewBag.CurrentUserId;
+
+    bool isFavorited = Model.Post.Favorites.Any(n => n.UserId == loggedInUserId);
+    bool isLiked = Model.Post.Likes.Any(n => n.UserId == loggedInUserId);
 }
 
 <div class="post-item bg-white rounded-xl shadow-sm text-sm font-medium border1 transition-opacity duration-500"

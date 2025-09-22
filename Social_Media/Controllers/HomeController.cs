@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Reflection.Metadata.Ecma335;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PimpleNet.Data;
@@ -20,9 +19,19 @@ namespace Social_Media.Controllers
             _context = context;
         }
 
+        private int? GetCurrentUserId()
+        {
+            ViewBag.CurrentUserId = HttpContext.Session.GetInt32("UserId");
+            return HttpContext.Session.GetInt32("UserId");
+        }
+
         public async Task<IActionResult> FavoritesL()
         {
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
+
             var FavoritesList = await _context.Favorites
+                .Include(f => f.User)
                 .Include(f => f.Post)
                     .ThenInclude(p => p.User)
                 .Include(f => f.Post)
@@ -32,22 +41,32 @@ namespace Social_Media.Controllers
                 .Include(f => f.Post)
                     .ThenInclude(p => p.Comments)
                         .ThenInclude(c => c.User)
-                .Where(f => f.UserId == 1)
+                .Where(f => f.UserId == userId.Value)
                 .OrderByDescending(f => f.Post.CreatedAt)
                 .ToListAsync();
+
             return View(FavoritesList);
         }
+
         public async Task<IActionResult> Friends()
         {
-            var FriendsList = await _context.Friendships
-                .Include(f => f.Friend)
-                .Where(f => f.UserId == 1)
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
+
+            var friendsList = await _context.Friendships
+                .Include(f => f.User)    // підвантажуємо User
+                .Include(f => f.Friend)  // підвантажуємо Friend
+                .Where(f => f.UserId == userId.Value || f.FriendId == userId.Value)
                 .ToListAsync();
-            return View(FriendsList);
+
+            return View(friendsList);
         }
 
         public async Task<IActionResult> Index()
         {
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
+
             var allPosts = await _context.Posts
                 .Include(p => p.User)
                 .Include(p => p.Likes)
@@ -56,17 +75,21 @@ namespace Social_Media.Controllers
                     .ThenInclude(c => c.User)
                 .OrderByDescending(p => p.CreatedAt)
                 .ToListAsync();
+
             var allUsers = await _context.Users
-                .Where(u => u.Id != 1)
+                .Where(u => u.Id != userId.Value)
                 .ToListAsync();
+
             ViewBag.allUsers = allUsers;
+
             return View(allPosts);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreatePost(PostVM post)
         {
-            int loggedInUser = 1;
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
 
             var newPost = new Post()
             {
@@ -75,7 +98,7 @@ namespace Social_Media.Controllers
                 NrOfReports = 0,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
-                UserId = loggedInUser
+                UserId = userId.Value
             };
 
             if (post.Image != null && post.Image.Length > 0)
@@ -94,23 +117,23 @@ namespace Social_Media.Controllers
                         await post.Image.CopyToAsync(stream);
                     }
 
-                    newPost.ImageUrl = "/images/uploaded" + fileName;
+                    newPost.ImageUrl = "/images/uploaded/" + fileName;
                 }
             }
+
             await _context.Posts.AddAsync(newPost);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-
-        [HttpPost]
         public async Task<IActionResult> ToggleLike(PostLikeVM postLikeVM)
         {
-            int loggedInUserId = 1; // тут в реалі має бути твій UserId
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
 
             var like = await _context.Likes
-                .FirstOrDefaultAsync(l => l.PostId == postLikeVM.PostId && l.UserId == loggedInUserId);
+                .FirstOrDefaultAsync(l => l.PostId == postLikeVM.PostId && l.UserId == userId.Value);
 
             if (like != null)
             {
@@ -121,7 +144,7 @@ namespace Social_Media.Controllers
                 var newLike = new Like()
                 {
                     PostId = postLikeVM.PostId,
-                    UserId = loggedInUserId
+                    UserId = userId.Value
                 };
                 await _context.Likes.AddAsync(newLike);
             }
@@ -129,23 +152,25 @@ namespace Social_Media.Controllers
             await _context.SaveChangesAsync();
 
             var likesCount = await _context.Likes.CountAsync(l => l.PostId == postLikeVM.PostId);
-            var isLiked = await _context.Likes.AnyAsync(l => l.PostId == postLikeVM.PostId && l.UserId == loggedInUserId);
+            var isLiked = await _context.Likes.AnyAsync(l => l.PostId == postLikeVM.PostId && l.UserId == userId.Value);
 
             return Json(new { likesCount, isLiked });
         }
 
-
         [HttpPost]
         public async Task<IActionResult> AddComment(PostCommentVM commentVM)
         {
-            int loggedInUserId = 1;
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
+
             var newComment = new Comment()
             {
                 CreatedAt = DateTime.UtcNow,
                 Content = commentVM.Content,
-                UserId = loggedInUserId,
+                UserId = userId.Value,
                 PostId = commentVM.PostId
             };
+
             await _context.Comments.AddAsync(newComment);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
@@ -154,7 +179,12 @@ namespace Social_Media.Controllers
         [HttpPost]
         public async Task<IActionResult> RemoveComment(RemoveCommentVM removeCommentVM)
         {
-            var commentDb = await _context.Comments.FirstOrDefaultAsync(c => c.Id == removeCommentVM.CommentId);
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
+
+            var commentDb = await _context.Comments
+                .FirstOrDefaultAsync(c => c.Id == removeCommentVM.CommentId && c.UserId == userId.Value);
+
             if (commentDb != null)
             {
                 _context.Comments.Remove(commentDb);
@@ -162,18 +192,16 @@ namespace Social_Media.Controllers
             }
 
             return RedirectToAction("Index");
-
         }
 
         [HttpPost]
-
         public async Task<IActionResult> ToggleFavorite(PostFavoriteVM postFavoriteVM)
         {
-            int loggedInUserId = 1;
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
 
             var favorite = await _context.Favorites
-                .Where(l => l.PostId == postFavoriteVM.PostId && l.UserId == loggedInUserId)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(l => l.PostId == postFavoriteVM.PostId && l.UserId == userId.Value);
 
             if (favorite != null)
             {
@@ -181,25 +209,18 @@ namespace Social_Media.Controllers
             }
             else
             {
-                bool alreadyExists = await _context.Favorites
-                    .AnyAsync(f => f.PostId == postFavoriteVM.PostId && f.UserId == loggedInUserId);
-
-                if (!alreadyExists)
+                var newFavorite = new Favorite
                 {
-                    var newFavorite = new Favorite
-                    {
-                        PostId = postFavoriteVM.PostId,
-                        UserId = loggedInUserId
-                    };
-                    _context.Favorites.Add(newFavorite);
-                }
-                ;
+                    PostId = postFavoriteVM.PostId,
+                    UserId = userId.Value
+                };
+                await _context.Favorites.AddAsync(newFavorite);
             }
 
             await _context.SaveChangesAsync();
 
             var isFavorited = await _context.Favorites
-                .AnyAsync(l => l.PostId == postFavoriteVM.PostId && l.UserId == loggedInUserId);
+                .AnyAsync(l => l.PostId == postFavoriteVM.PostId && l.UserId == userId.Value);
             var favoritesCount = await _context.Favorites
                 .CountAsync(l => l.PostId == postFavoriteVM.PostId);
 
@@ -208,10 +229,11 @@ namespace Social_Media.Controllers
 
         public async Task<IActionResult> TogglePrivacy(PostVisibilityVM postVisibilityVM)
         {
-            int loggedInUserId = 1;
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
 
             var post = await _context.Posts
-                .FirstOrDefaultAsync(l => l.Id == postVisibilityVM.PostId && l.UserId == loggedInUserId);
+                .FirstOrDefaultAsync(l => l.Id == postVisibilityVM.PostId && l.UserId == userId.Value);
 
             if (post != null)
             {
@@ -223,32 +245,38 @@ namespace Social_Media.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpPost] 
-        public async Task <IActionResult> ToggleFriend(AddFriendVM addFriendVM)
+        [HttpPost]
+        public async Task<IActionResult> ToggleFriend(AddFriendVM addFriendVM)
         {
-            int loggedInUserId = 1;
+            var userId = GetCurrentUserId();
+            if (userId == null) return RedirectToAction("RegisterLogin", "Account");
+
+            // Шукаємо дружбу в будь-якому напрямку
             var friendship = await _context.Friendships
-                .Where(f => f.UserId == loggedInUserId && f.FriendId == addFriendVM.FriendId)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(f =>
+                    (f.UserId == userId.Value && f.FriendId == addFriendVM.FriendId) ||
+                    (f.UserId == addFriendVM.FriendId && f.FriendId == userId.Value));
+
             if (friendship != null)
             {
+                // Видаляємо існуючу дружбу
                 _context.Friendships.Remove(friendship);
             }
             else
             {
-                    var newFriendship = new Friendship
-                    {
-                        UserId = loggedInUserId,
-                        FriendId = addFriendVM.FriendId
-                    };
-                    _context.Friendships.Add(newFriendship);
-                
+                // Створюємо нову дружбу
+                var newFriendship = new Friendship
+                {
+                    UserId = userId.Value,
+                    FriendId = addFriendVM.FriendId,
+                    CreatedAt = DateTime.UtcNow
+                };
+                await _context.Friendships.AddAsync(newFriendship);
             }
+
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-
-
 
     }
 }

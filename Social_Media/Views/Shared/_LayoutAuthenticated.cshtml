@@ -1,5 +1,10 @@
-﻿
+﻿@inject PimpleNet.Data.AppDb _context
 <!DOCTYPE html>
+
+@{
+    int? userId = Context.Session.GetInt32("UserId");
+    var currentUser = userId.HasValue ? _context.Users.FirstOrDefault(u => u.Id == userId.Value) : null;
+}
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -15,10 +20,14 @@
 
     <div id="wrapper">
 
+        @if (currentUser != null)
+        {
+            <partial name="Navigation/_TopBar" model="currentUser" />
+            <partial name="Navigation/_SideBar"/>
+        }
 
+        @RenderBody()
 
-            @RenderBody()
-        
 
 
 
