@@ -50,14 +50,14 @@
                     </div>
                 </div>
                 <div class="rounded-full relative bg-secondery cursor-pointer shrink-0">
-                    <img src="~/images/avatar/defavar.png" class="sm:w-9 sm:h-9 w-7 h-7 rounded-full shadow shrink-0" />
+                    <img src="@(Model.profilePicture ?? "~/images/avatar/defavar.png")" class="w-9 h-9 rounded-full" />
 
                 </div>
                 <div class="hidden bg-white text-black rounded-lg drop-shadow-xl w-64 border2" uk-drop="offset:6;pos: bottom-right;animate-out: true;">
 
                     <a>
                         <div class="p-4 py-5 flex items-center gap-4 text-black">
-                            <img src="~/images/avatar/defavar.png" class="w-10 h-10 rounded-full shadow" />
+                            <img src="@(Model.profilePicture ?? "~/images/avatar/defavar.png")" class="w-9 h-9 rounded-full" />
                             <div class="flex-1 text-black">
                                 <h4 class="text-sm font-medium ">@Model.Fullname</h4>
                                 <div class="text-sm mt-1 text-blue-600 font-light/70">testing</div>

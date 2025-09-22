@@ -32,7 +32,7 @@ namespace Social_Media.Controllers
             public async Task<IActionResult> RegisterLogin(string username, string password, string Email)
             {
                 // Перевіряємо, чи існує користувач
-                var user = _context.Users.FirstOrDefault(u => u.Fullname == username);
+                var user = _context.Users.FirstOrDefault(u => u.Fullname == username && u.Email == Email); 
 
                 if (user == null)
                 {
@@ -52,6 +52,17 @@ namespace Social_Media.Controllers
                     if (user.password != password)
                     {
                         ViewBag.Error = "Невірний пароль";
+                        return View();
+                    }
+
+                    if(user.Email != Email)
+                    {
+                        ViewBag.Error = "Невірний Email";
+                        return View();
+                    }
+                    if(user.Fullname != username)
+                    {
+                        ViewBag.Error = "Невірне ім'я користувача";
                         return View();
                     }
                 }

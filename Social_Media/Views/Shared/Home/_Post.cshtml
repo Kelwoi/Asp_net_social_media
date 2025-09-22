@@ -49,7 +49,8 @@
                         </button>
                     </form>
                     <hr />
-                    <form>
+                    <form asp-controller="Home" asp-action="RemovePost">
+                    <input type="hidden" name="PostId" value="@Model.Id" />
                         <button type="submit" class="hover:bg-red-50 icon-link">
                             <ion-icon class="text-xl shrink-0" name="trash-bin-outline"></ion-icon>delete post
                         </button>

@@ -25,6 +25,15 @@ namespace Social_Media.Controllers
             return HttpContext.Session.GetInt32("UserId");
         }
 
+        private User? GetCurrrentUser()
+        {
+
+            var userId = HttpContext.Session.GetInt32("UserId");
+            var currentUser = userId.HasValue ? _context.Users.FirstOrDefault(u => u.Id == userId.Value) : null;
+            return currentUser;
+
+        }
+
         public async Task<IActionResult> FavoritesL()
         {
             var userId = GetCurrentUserId();
@@ -191,6 +200,23 @@ namespace Social_Media.Controllers
                 await _context.SaveChangesAsync();
             }
 
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RemovePost(PostRemoveVM removePostVM)
+        {
+            var user = GetCurrrentUser();
+            if (user == null) return RedirectToAction("RegisterLogin", "Account");
+            var postDb = await _context.Posts
+                .FirstOrDefaultAsync(p =>
+                    p.Id == removePostVM.PostId &&
+                    (p.UserId == user.Id || user.isAdmin));
+            if (postDb != null)
+            {
+                _context.Posts.Remove(postDb);
+                await _context.SaveChangesAsync();
+            }
             return RedirectToAction("Index");
         }
 
